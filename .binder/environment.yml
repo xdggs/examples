@@ -32,3 +32,4 @@ dependencies:
       - jupytext
       - nbgitpuller
       - mystmd
+      - xdggs
