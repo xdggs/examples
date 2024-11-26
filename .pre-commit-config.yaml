@@ -18,13 +18,11 @@ exclude: "(.*/)?secrets/.*|code_of_conduct.md|rule_of_participation.md"
 repos:
   # autoformat and lint Python code
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.1.14
+    rev: v0.8.0
     hooks:
       - id: ruff
-        types_or: [python, jupyter]
         args: ["--fix", "--show-fixes"]
       - id: ruff-format
-        types_or: [python, jupyter]
 
   # Autoformat: markdown, yaml, javascript (see the file .prettierignore)
   - repo: https://github.com/pre-commit/mirrors-prettier
