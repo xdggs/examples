@@ -6923,7 +6923,7 @@ packages:
 - pypi: ./
   name: xdggs-examples
   version: 0.0.0
-  sha256: 65a9f2b304821384e87bbe4efb66d09a5ec7553cf9c88355b613d3479e10eca8
+  sha256: 3688dea9fb5ad6a8235b2620dbc9b543da4802190469478732972e3711990abf
   requires_dist:
   - healpix-geo>=0.0.4
   editable: true
