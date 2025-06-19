@@ -1,3 +1,9 @@
+[project]
+name = "xdggs-examples"
+description = "Real-world examples using xdggs."
+dynamic = ["version"]
+dependencies = ["healpix-geo>=0.0.4"]
+
 [tool.ruff]
 target-version = "py310"
 builtins = ["ellipsis"]
@@ -37,3 +43,52 @@ fixable = ["I", "TID252"]
 [tool.ruff.lint.flake8-tidy-imports]
 # Disallow all relative imports.
 ban-relative-imports = "all"
+
+[tool.pixi.workspace]
+name = "xdggs-examples"
+channels = ["conda-forge"]
+platforms = ["linux-64"]
+
+[tool.pixi.pypi-dependencies]
+xdggs-examples = { path = ".", editable = true }
+
+[tool.pixi.tasks]
+
+[tool.pixi.feature.nicam.dependencies]
+zarr = "*"
+intake = "<2"
+intake-xarray = "<2"
+pooch = "*"
+
+[tool.pixi.dependencies]
+jupyterlab = ">=4.4"
+dask-labextension = ">=7"
+ipywidgets = "*"
+jupyter-resource-usage = "*"
+jupyterlab_code_formatter = "*"
+black = "*"
+isort = "*"
+ruff = "*"
+dask = ">=2025.5.1"
+distributed = ">=2025.5.1"
+xarray = ">=2025.6.1"
+matplotlib = ">=3.10"
+numpy = ">=2.3.0"
+pandas = ">=2.3.0"
+geopandas = ">=1.1.0"
+arro3-core = ">=0.4.0"
+shapely = ">=2.1"
+pyproj = "*"
+lonboard = "*"
+h3ronpy = "*"
+cdshealpix = "*"
+flox = "*"
+
+[tool.pixi.environments]
+nicam = ["nicam"]
+
+[tool.pixi.system-requirements]
+libc = { family = "glibc", version = "2.34" }
+
+[dependency-groups]
+nicam = ["xdggs @ git+https://github.com/keewis/xdggs.git@test"]
