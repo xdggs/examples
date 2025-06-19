@@ -42,3 +42,45 @@ fixable = ["I", "TID252"]
 [tool.ruff.lint.flake8-tidy-imports]
 # Disallow all relative imports.
 ban-relative-imports = "all"
+
+[tool.pixi.workspace]
+name = "xdggs-examples"
+channels = ["conda-forge"]
+platforms = ["linux-64"]
+
+[tool.pixi.pypi-dependencies]
+xdggs-examples = { path = ".", editable = true }
+
+[tool.pixi.tasks]
+
+[tool.pixi.feature.nicam.dependencies]
+h3ronpy = "*"
+cdshealpix = "*"
+xarray = "*"
+zarr = "*"
+intake = "<2"
+intake-xarray = "<2"
+lonboard = "*"
+pyproj = "*"
+matplotlib = "*"
+arro3-core = ">=0.4.0"
+pooch = "*"
+
+[tool.pixi.dependencies]
+jupyterlab = ">=4.4.3,<5"
+dask-labextension = ">=7.0.0,<8"
+ipywidgets = ">=8.1.7,<9"
+jupyter-resource-usage = ">=0.7.1,<0.8"
+jupyterlab_code_formatter = ">=3.0.2,<4"
+black = ">=25.1.0,<26"
+isort = ">=6.0.1,<7"
+ruff = ">=0.12.0,<0.13"
+
+[tool.pixi.environments]
+nicam = ["nicam"]
+
+[tool.pixi.system-requirements]
+libc = {family = "glibc", version = "2.34"}
+
+[dependency-groups]
+nicam = ["xdggs @ git+https://github.com/keewis/xdggs.git@test"]
